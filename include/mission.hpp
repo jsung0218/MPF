@@ -7,7 +7,7 @@
 
 using namespace rapidjson;
 
-namespace FollowPlanning {
+namespace MPF {
     class Mission {
     public:
         int qn; // the number of quadrotors

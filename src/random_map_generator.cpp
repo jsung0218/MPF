@@ -53,7 +53,7 @@ double r_min, r_max, h_min, h_max, resolution;
 sensor_msgs::PointCloud2 globalMap_pcd;
 pcl::PointCloud<pcl::PointXYZ> cloudMap;
 
-void RandomMapGenerate(const FollowPlanning::Mission& mission)
+void RandomMapGenerate(const MPF::Mission& mission)
 {
     double numel_e = 0.00001;
     pcl::PointXYZ pt_random;
@@ -144,7 +144,7 @@ int main (int argc, char** argv) {
     n.param<double>("world/h_min", h_min,   1.0);
     n.param<double>("world/h_max", h_max,   2.5);
 
-    FollowPlanning::Mission mission;
+    MPF::Mission mission;
     if(!mission.setMission(n)){
         return -1;
     }

@@ -11,8 +11,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 set(CMAKE_BUILD_TYPE Release)
 
 #ECBS
-#add_subdirectory(${PROJECT_SOURCE_DIR}/third_party/ecbs)
-#include_directories(${PROJECT_SOURCE_DIR}/third_party/ecbs/include)
+add_subdirectory(${PROJECT_SOURCE_DIR}/third_party/ecbs)
+include_directories(${PROJECT_SOURCE_DIR}/third_party/ecbs/include)
 
 #BOOST14
 find_package(Boost 1.58 REQUIRED COMPONENTS program_options)
@@ -73,4 +73,18 @@ add_executable(random_map_generator src/random_map_generator.cpp)
 target_link_libraries(random_map_generator
   ${catkin_LIBRARIES}
   ${PCL_LIBRARIES}
+)
+
+add_executable(following_traj_planner src/following_traj_planner.cpp)
+target_link_libraries(following_traj_planner
+  ${catkin_LIBRARIES}
+  ${OCTOMAP_INCLUDE_DIRS}
+  ${SIPP_LINK_LIBS}
+  ${PYTHON_LIBRARIES}
+  m
+  ilocplex
+  cplex
+  concert
+  pthread
+  dl
 )

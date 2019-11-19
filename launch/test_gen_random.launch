@@ -1,0 +1,14 @@
+<launch>
+<!-- argument begin-->
+
+    <arg name="mission"     default="mission_8agents_15.json"/>
+    <arg name="runsim"      default="true"/>
+
+<!-- argument end-->
+<!-- Node start-->
+    <node pkg="MPF" type="random_map_generator" name="random_map_generator" output="screen">
+        <param name="mission"   value="$(find MPF)/missions/$(arg mission)" />
+    </node>
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find MPF)/launch/rviz_config/config_test_following.rviz" if="$(arg runsim)" />
+    -->
+</launch>    
